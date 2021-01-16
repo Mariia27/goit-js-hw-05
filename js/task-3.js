@@ -19,14 +19,19 @@ class Storage {
     this.items.push(item)
   };
   removeItem(item) {
-    for (const itemName of this.items) {
-      if (itemName === item) {
-        const indexOfItem = this.items.indexOf(item)
-      //console.log(indexOfItem);
+    
+    // for (const itemName of this.items) {
+    //   if (itemName === item) {
+    //     const indexOfItem = this.items.indexOf(item)
+    //   //console.log(indexOfItem);
+    //     return this.items.splice(indexOfItem, 1)
+    //   }
+    // }
+   const indexOfItem = this.items.indexOf(item)
+      if (indexOfItem !== -1) {
         return this.items.splice(indexOfItem, 1)
-      }
+      
     }
-    //this.items = this.items.filter(item => item !== this.item)
   };
 }
 const storage = new Storage([

@@ -23,7 +23,7 @@ class Car {
    *  isOn - заведен ли автомобиль, значения true или false. Изначально false
    *  distance - общий киллометраж, изначально 0
    */
-  constructor({speed, price, maxSpeed,  isOn, distance, }) {
+  constructor({speed, price, maxSpeed,  isOn, distance }) {
     this.speed = 0;
     this.price = price;
     this.maxSpeed = maxSpeed
@@ -65,8 +65,9 @@ class Car {
    * не больше чем значение свойства maxSpeed
    */
   accelerate(value) {
-   if (this.speed <= this.maxSpeed) {
-     this.speed += this.speed + value;
+    const resultSpeed = this.speed + value;
+    if (resultSpeed <= this.maxSpeed) {
+     this.speed = resultSpeed;
    }
   }
 
@@ -75,8 +76,9 @@ class Car {
    * при условии что результирующая скорость не меньше нуля
    */
   decelerate(value) {
+     const resultSpeed = this.speed - value;
     if (this.speed !== 0) {
-      this.speed = this.speed - value;
+      this.speed = resultSpeed;
     }
   }
 
